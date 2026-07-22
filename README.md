@@ -4,12 +4,13 @@
 [![GitHub Issues](https://img.shields.io/github/issues/ViperRNMC/marstek_venus_modbus)](https://github.com/ViperRNMC/marstek_venus_modbus/issues)
 [![Downloads](https://img.shields.io/github/downloads/ViperRNMC/marstek_venus_modbus/total)](https://github.com/ViperRNMC/marstek_venus_modbus/releases)
 
-This is a custom HACS-compatible integration for Marstek Venus battery systems, using **Modbus TCP** via an **RS485-to-WiFi gateway** or direct Ethernet where supported. No YAML required. The integration provides sensors, switches and number controls to monitor and manage the battery directly from Home Assistant.
+This is a custom HACS-compatible integration for Marstek Venus battery systems, using **Modbus TCP** via an RS485-to-WiFi gateway or direct Ethernet where supported (e.g. Venus E3). No YAML required. The integration provides sensors, switches and number controls to monitor and manage the battery directly from Home Assistant.
 
 
 ### 🧩 Requirements
 
 - A configured **Modbus RTU to Modbus TCP bridge** connected to the battery's RS485 port
+     - Alternativly: Ethernet Connection to Battery with Modbus TCP support
 - The IP address, port of the Modbus TCP (usually port 502) and Unit ID (also called Slave ID).
 - Home Assistant Core 2025.9 or later
 - HACS installed
