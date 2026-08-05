@@ -54,3 +54,67 @@ Hardware tested: Marstek Venus E v3, firmware V148.
 | 45604 | Unknown. Value 20599 (0x5077). Adjacent to 45603/45605. Possibly WiFi channel, frequency, or AP info. Not confirmed. |
 | 45605 | Unknown. Constant value 74 in V148 scan. Adjacent to 45603/45604. |
 | 47400 | Unknown. Value 43707 (0xAABB) in V148 scan. Alternating-nibble sentinel — same class as 0x9999, likely "not configured" / undefined. |
+
+---
+
+## Venus D (d.yaml)
+
+Hardware tested: Marstek Venus D, multi-pack setup (verified with up to 6 packs installed;
+address pattern extends to a 7th pack). BMS firmware observed going 116 → 1177 (v117.7) after a BMS update.
+All registers below were read back and cross-checked on real hardware, but are **not** added to the
+integration — following the same policy applied to Venus A/E, which integrates only per-pack SoC and
+per-pack cell voltages, not the remaining per-pack scalars.
+
+Integrated in this PR (for reference): `battery_soc_1..6` (34002/34102/34202/34302/34402/34502),
+`battery_2/3/4_cell_1..16_voltage` (34118–34133 / 34218–34233 / 34318–34333, 16 cells per pack —
+Venus D packs carry 16 cells vs. 13 on Venus A), `alarm_status` (36000), `fault_status` (36100).
+
+### Mirrors / inferior duplicates of already-integrated sensors
+
+| Register | Notes |
+|----------|-------|
+| 30002 | Mirror of `internal_temperature` (35000). int16, scale 0.1 °C. |
+| 30003 | Mirror of `internal_mos1_temperature` (35001). int16, scale 0.1 °C. |
+| 30004 | Mirror of `ac_voltage` (32200). uint16, scale 0.1 V. |
+| 37005 | Integer SoC without scale. Inferior to `battery_soc` (32104). |
+
+### Per-pack scalars (verified, deliberately not integrated)
+
+Pattern: each pack is offset by +0x100 (pack 1 = 340xx, pack 2 = 341xx, …). Values below confirmed
+across packs 1–5 (pack 6 follows the same pattern; populated only when a 6th pack is present).
+
+| Register (pack 1 / +0x100 per pack) | Key | Notes |
+|----------|-----|-------|
+| 34000 | pack battery voltage | uint16, scale 0.01 V. |
+| 34001 | pack battery current | int16, scale 0.1 A. Negative = discharge. Reads the active pack's current. |
+| 34003 | pack cycle count | uint16. Pack 1's value (34003) is already integrated as `battery_cycle_count`. |
+| 34004 | pack charge status | uint16. 3 = actively charging, 0 = idle. |
+| 34005 | pack max cell voltage | uint16, scale 0.001 V. |
+| 34006 | pack min cell voltage | uint16, scale 0.001 V. |
+| 34007 | pack max NTC temperature | uint16, scale 0.1 °C. |
+| 34008 | pack protection bitmask 1 | uint16 bitmask. Individual bits not fully decoded. |
+| 34009 | pack protection bitmask 2 | uint16 bitmask. Bit 1 (0x0002) = low-SoC/undervoltage (confirmed in discharge test, triggers below ~10.7%). |
+| 34010 | pack BMS version | uint16. 116 → 1177 (v117.7) after BMS firmware update. |
+| 34011 | pack cell NTC 0 | uint16, scale 0.1 °C. |
+| 34012 | pack cell NTC 1 | uint16, scale 0.1 °C. |
+| 34013 | pack cell NTC 2 | uint16, scale 0.1 °C. |
+| 34014 | pack cell NTC 3 | uint16, scale 0.1 °C. |
+| 34015 | pack MOS NTC | uint16, scale 0.1 °C. |
+| 34016 | pack environment NTC | uint16, scale 0.1 °C. |
+| 34017 | pack average NTC | uint16, scale 0.1 °C. |
+
+### Backup / UPS output (verified — candidates for integration)
+
+Distinct from the grid/inverter registers; measured on the backup (off-grid) output. Would need
+new translation keys, hence documented here rather than added blindly.
+
+| Register | Notes |
+|----------|-------|
+| 30005 | Backup/UPS output voltage. uint16, scale 0.1 V. ~1 V when backup inactive; 236–242 V under load (242 V @100 W → 237 V @3 kW). |
+| 30007 | Backup/UPS output power. uint16, scale 1 W. 0 when no backup load; 0–3271 W depending on load on the backup output. |
+
+### Version / misc
+
+| Register | Notes |
+|----------|-------|
+| 30205 | MPPT firmware version. uint16 (observed 104). |

@@ -264,6 +264,15 @@
       "battery_2_cell_13_voltage": {
         "name": "Batteriepack 2 Zelle 13 Spannung"
       },
+      "battery_2_cell_14_voltage": {
+        "name": "Batteriepack 2 Zelle 14 Spannung"
+      },
+      "battery_2_cell_15_voltage": {
+        "name": "Batteriepack 2 Zelle 15 Spannung"
+      },
+      "battery_2_cell_16_voltage": {
+        "name": "Batteriepack 2 Zelle 16 Spannung"
+      },
       "battery_3_cell_1_voltage": {
         "name": "Batteriepack 3 Zelle 1 Spannung"
       },
@@ -303,6 +312,15 @@
       "battery_3_cell_13_voltage": {
         "name": "Batteriepack 3 Zelle 13 Spannung"
       },
+      "battery_3_cell_14_voltage": {
+        "name": "Batteriepack 3 Zelle 14 Spannung"
+      },
+      "battery_3_cell_15_voltage": {
+        "name": "Batteriepack 3 Zelle 15 Spannung"
+      },
+      "battery_3_cell_16_voltage": {
+        "name": "Batteriepack 3 Zelle 16 Spannung"
+      },
       "battery_4_cell_1_voltage": {
         "name": "Batteriepack 4 Zelle 1 Spannung"
       },
@@ -341,6 +359,15 @@
       },
       "battery_4_cell_13_voltage": {
         "name": "Batteriepack 4 Zelle 13 Spannung"
+      },
+      "battery_4_cell_14_voltage": {
+        "name": "Batteriepack 4 Zelle 14 Spannung"
+      },
+      "battery_4_cell_15_voltage": {
+        "name": "Batteriepack 4 Zelle 15 Spannung"
+      },
+      "battery_4_cell_16_voltage": {
+        "name": "Batteriepack 4 Zelle 16 Spannung"
       },
       "battery_5_cell_1_voltage": {
         "name": "Batteriepack 5 Zelle 1 Spannung"
