@@ -501,6 +501,9 @@
       "stored_energy": {
         "name": "Stored Energy"
       },
+      "solar_power_total": {
+        "name": "Solar Power"
+      },
       "mppt1_voltage": {
         "name": "MPPT1 Voltage"
       },

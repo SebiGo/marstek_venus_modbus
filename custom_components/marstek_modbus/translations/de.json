@@ -498,6 +498,9 @@
       "stored_energy": {
         "name": "Gespeicherte Energie"
       },
+      "solar_power_total": {
+        "name": "Gesamt-Solarleistung"
+      },
       "mppt1_voltage": {
         "name": "MPPT1 Spannung"
       },
