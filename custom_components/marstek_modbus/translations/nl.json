@@ -478,6 +478,9 @@
       "stored_energy": {
         "name": "Opgeslagen Energie"
       },
+      "solar_power_total": {
+        "name": "Totale zonne-energie"
+      },
       "mppt1_voltage": {
         "name": "MPPT1 Spanning"
       },
