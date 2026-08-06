@@ -271,6 +271,15 @@
       "battery_2_cell_13_voltage": {
         "name": "Batterij pack 2 Cel 13 Spanning"
       },
+      "battery_2_cell_14_voltage": {
+        "name": "Batterij pack 2 Cel 14 Spanning"
+      },
+      "battery_2_cell_15_voltage": {
+        "name": "Batterij pack 2 Cel 15 Spanning"
+      },
+      "battery_2_cell_16_voltage": {
+        "name": "Batterij pack 2 Cel 16 Spanning"
+      },
       "battery_3_cell_1_voltage": {
         "name": "Batterij pack 3 Cel 1 Spanning"
       },
@@ -310,6 +319,15 @@
       "battery_3_cell_13_voltage": {
         "name": "Batterij pack 3 Cel 13 Spanning"
       },
+      "battery_3_cell_14_voltage": {
+        "name": "Batterij pack 3 Cel 14 Spanning"
+      },
+      "battery_3_cell_15_voltage": {
+        "name": "Batterij pack 3 Cel 15 Spanning"
+      },
+      "battery_3_cell_16_voltage": {
+        "name": "Batterij pack 3 Cel 16 Spanning"
+      },
       "battery_4_cell_1_voltage": {
         "name": "Batterij pack 4 Cel 1 Spanning"
       },
@@ -348,6 +366,15 @@
       },
       "battery_4_cell_13_voltage": {
         "name": "Batterij pack 4 Cel 13 Spanning"
+      },
+      "battery_4_cell_14_voltage": {
+        "name": "Batterij pack 4 Cel 14 Spanning"
+      },
+      "battery_4_cell_15_voltage": {
+        "name": "Batterij pack 4 Cel 15 Spanning"
+      },
+      "battery_4_cell_16_voltage": {
+        "name": "Batterij pack 4 Cel 16 Spanning"
       },
       "battery_5_cell_1_voltage": {
         "name": "Batterij pack 5 Cel 1 Spanning"
